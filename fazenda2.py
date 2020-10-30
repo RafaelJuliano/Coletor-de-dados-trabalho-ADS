@@ -5,14 +5,7 @@ conec = pyodbc.connect(
 cursor = conec.cursor()
 
 u = {'Usuário': [], 'Senha': [], 'Nome': []}
-cursor.execute('SELECT Matrícula, Nome, Senha FROM funcionários WHERE Cargo_ID = 23')
-x = []
-for row in cursor:
-    x.append(row)
-for row in x:
-    u['Usuário'].append(row[0])
-    u['Nome'].append(row[1])
-    u['Senha'].append(row[2])
+
 lmt = list(range(50))
 
 def verificadorInt(lista, texto, textoe):
@@ -38,6 +31,15 @@ def verificadorStr(lista, texto):
 
 
 def login():
+    cursor.execute('SELECT Matrícula, Nome, Senha FROM funcionários WHERE Cargo_ID = 23')
+    x = []
+    for row in cursor:
+        x.append(row)
+    for row in x:
+        u['Usuário'].append(row[0])
+        u['Nome'].append(row[1])
+        u['Senha'].append(row[2])
+        
     l = verificadorInt(u['Usuário'], 'Digite sua matrícula: ', 'Usuário não encontrado')
     index = 0
     for x in u['Usuário']:
