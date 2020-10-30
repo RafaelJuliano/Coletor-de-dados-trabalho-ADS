@@ -20,7 +20,7 @@ def login(cursor):
                 s = input('Digite a senha: ')
                 if s == u['Senha'][index]:
                     resp = [l, u['Nome'][index]]
-                    menu(resp[0], resp[1])
+                    menu(resp[0], resp[1], cursor)
                     break
                 else:
                     print('Senha inválida\n')
@@ -28,7 +28,7 @@ def login(cursor):
             index += 1
 
 
-def menu(matricula, nome):
+def menu(matricula, nome, cursor):
     resp = [matricula, nome]
     texto = ['SISTEMA DE COLETA DE LEITE',
              'RESPONSÁVEL: {}\n',
@@ -44,9 +44,9 @@ def menu(matricula, nome):
     print(texto[5])
     o = verificadores.verificadorInt([1, 2, 3], ': ', 'Digite 1, 2 ou 3')
     if o == 1:
-        print('Vacas não ordenhadas\n', funcoes.pendente(), '\n')
-        menu(resp[0], resp[1])
+        print('Vacas não ordenhadas\n', funcoes.pendente(cursor), '\n')
+        menu(resp[0], resp[1], cursor)
     elif o == 2:
-        funcoes.registrar(resp)
+        funcoes.registrar(resp, cursor)
     else:
-        login()
+        login(cursor)
