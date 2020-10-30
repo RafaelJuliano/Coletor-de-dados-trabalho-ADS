@@ -11,12 +11,14 @@ lmt = list(range(50))
 def verificadorInt(lista, texto, textoe):
     while True:
         vr = input(texto)
-        if vr.isnumeric():
+        try:
             vr = int(vr)
             if vr in lista:
                 return vr
             else:
                 print(textoe, '\n')
+        except:
+            print('Digite um valor inteiro')
         else:
             print('Digite um valor válido\n')
 
@@ -39,7 +41,7 @@ def login():
         u['Usuário'].append(row[0])
         u['Nome'].append(row[1])
         u['Senha'].append(row[2])
-        
+
     l = verificadorInt(u['Usuário'], 'Digite sua matrícula: ', 'Usuário não encontrado')
     index = 0
     for x in u['Usuário']:
