@@ -1,5 +1,5 @@
-from Portifolio import funcoes, verificadores
-import pyodbc
+import funcoes, verificadores
+
 
 def login(cursor):
     u = {'Usuário': [], 'Senha': [], 'Nome': []}

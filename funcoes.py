@@ -1,4 +1,4 @@
-from Portifolio import acessos, verificadores
+import acessos, verificadores
 
 def pendente(cursor):
     cursor.execute('SELECT ID FROM v_ordenhap')

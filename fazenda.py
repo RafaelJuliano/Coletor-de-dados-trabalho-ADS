@@ -2,10 +2,6 @@ import pandas
 import sqlalchemy
 from datetime import date, datetime
 
-
-
-
-
 data = date.today()
 hora = datetime.now()
 
